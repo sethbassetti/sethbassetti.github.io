@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://sethbassetti.github.io/sitemap.xml
