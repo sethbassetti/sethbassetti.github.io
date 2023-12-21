@@ -17,7 +17,7 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 
-Hi! I'm Seth Bassetti, a non-tenure track professor at Utah State University from Cle Elum, WA. I have a deep passion for computer science, education, and artifical intelligence, and 
+Hi! I'm Seth Bassetti, a non-tenure track professor at Utah State University from Cle Elum, WA. I have a deep passion for computer science, education, and artifical intelligence.
 
 I discovered computer science through pure chance while living a nomadic van life in the southwestern US. On a semester off of my undergraduate,
 I met someone on the road who introduced me to coding, which convinced me to continue my studies in a new field!
