@@ -12,7 +12,6 @@
 }
 
 @inproceedings{bassetti2023diffesm,
-  selected={true},
   title={DiffESM: Conditional Emulation of Earth System Models with Diffusion Models},
   author={Bassetti, Seth and Hutchinson, Brian and Tebaldi, Claudia and Kravitz, Ben},
   booktitle={ICLR 2023 Workshop on Tackling Climate Change with Machine Learning},
@@ -25,12 +24,13 @@
   abbr={ICLR},
 }
 
-@article{bassettidiffesm,
+@article{bassetti2024diffesm,
   title={DiffESM: Conditional Emulation of Temperature and Precipitation in Earth System Models with 3D Diffusion Models},
+  selected={true},
   author={Bassetti, Seth and Hutchinson, Brian and Tebaldi, Claudia and Kravitz, Ben},
-  booktitle={ESS Open Archive},
-  html={https://essopenarchive.org/doi/full/10.22541/essoar.170612214.43012845},
-  pdf={https://d197for5662m48.cloudfront.net/documents/publicationstatus/187496/preprint_pdf/7f4a4a0fa4c92be8c40c89f6b258da3e.pdf},
+  journal={Journal of Advances in Modeling Earth Systems},
+  html={https://arxiv.org/abs/2409.11601},
+  pdf={https://arxiv.org/pdf/2409.11601},
   year={2024},
-  abstract={Earth System Models (ESMs) are essential tools for understanding the interaction of the human and Earth systems. One key application of these models is studying extreme weather events, such as heat waves or high intensity precipitation events, which have significant socioeconomic consequences. However, the computational demands of running a sufficient number of simulations to robustly characterize expected changes in these hazards, and therefore provide a strong basis to analyze the ensuing risks, are often prohibitive. In this paper we demonstrate that diffusion models – a class of generative deep learning models – can effectively emulate the spatio-temporal trends of ESM daily output. Trained on a handful of runs, reflecting a wide range of radiative forcings, our DiffESM model takes monthly mean precipitation or temperature as input and is capable of producing daily values of temperature and precipitation that have statistical characteristics close to the ESM output. This approach requires only a small fraction of the computational resources that would be needed to run a large ensemble under any scenario of interest. We evaluate model behavior over a range of scenarios, time horizons and two ESMs, using a number of extreme metrics, including ones that have been long established in the climate modeling and analysis community. Our results show that the samples produced by DiffESM closely matches the spatio-temporal behavior of the ESM output it emulates in terms of the frequency and spatial characteristics of phenomena such as heat waves, dry spells, or rainfall intensity.},
+  abstract={Earth System Models (ESMs) are essential tools for understanding the impact of human actions on Earth's climate. One key application of these models is studying extreme weather events, such as heat waves or dry spells, which have significant socioeconomic and environmental consequences. However, the computational demands of running a sufficient number of simulations to analyze the risks are often prohibitive. In this paper we demonstrate that diffusion models -- a class of generative deep learning models -- can effectively emulate the spatio-temporal trends of ESMs under previously unseen climate scenarios, while only requiring a small fraction of the computational resources. We present a diffusion model that is conditioned on monthly averages of temperature or precipitation on a 96×96 global grid, and produces daily values that are both realistic and consistent with those averages. Our results show that the output from our diffusion model closely matches the spatio-temporal behavior of the ESM it emulates in terms of the frequency of phenomena such as heat waves, dry spells, or rainfall intensity.},
 }
