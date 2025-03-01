@@ -1,0 +1,47 @@
+---
+import { Picture } from "astro:assets";
+import logo from "../images/logo.png";
+import "../styles/global.css";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+
+const navLinks = [
+  { name: "HOME", url: "/" },
+  { name: "PUBLICATIONS", url: "/publications" },
+  { name: "PROJECTS", url: "/projects" },
+  { name: "BLOG", url: "/blog" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="navbar px-20 py-8 select-none">
+  <!-- Left Section (Logo/Brand) -->
+  <a href="/" class="mr-6">
+    <Picture
+      src={logo}
+      alt="Logo"
+      class="h-9 w-9 rounded-full hover:-translate-y-1 ease-in-out transition-transform focus:-translate-y-1"
+      transition:animate="fade"
+      id="logo"
+    />
+  </a>
+
+  <!-- Center Section (NavLinks) -->
+  <ul class="">
+    {
+      navLinks.map((link) => (
+        <li
+          class={
+            "inline-block mr-6 text-sm tracking-wide font-medium hover:text-accent " +
+            (currentPath === link.url ? "text-accent" : "text-secondary")
+          }
+        >
+          <a href={link.url}>{link.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <hr class="flex-1 bg-neutral-content text-neutral-content h-0.5 mt-1 mx-3" />
+  <ThemeSwitcher />
+</header>
+
