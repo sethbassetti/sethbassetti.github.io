@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Body from "../components/Body.astro";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource-variable/inter";
 import { Image } from "astro:assets";
@@ -19,8 +20,13 @@ const { pageTitle } = Astro.props;
   </head>
 
   <body
-    ><Header />
+    ><div class="px-24">
+      <Header />
 
+      <Body />
+    </div>
+
+    <!-- Background Noise -->
     <div
       class="absolute inset-0 -z-20 opacity-80 h-full w-full mix-blend-overlay bg-[url('../images/noisy.png')]"
     >
