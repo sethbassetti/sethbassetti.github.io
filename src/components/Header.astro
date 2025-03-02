@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import logo from "../images/logo.png";
 import "../styles/global.css";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
@@ -17,10 +17,10 @@ const currentPath = Astro.url.pathname;
 <header class="navbar px-20 py-8 select-none">
   <!-- Left Section (Logo/Brand) -->
   <a href="/" class="mr-6">
-    <Picture
+    <Image
       src={logo}
       alt="Logo"
-      class="h-9 w-9 rounded-full hover:-translate-y-1 ease-in-out transition-transform focus:-translate-y-1"
+      class="h-9 w-9 rounded-full hover:-translate-y-1 ease-in-out transition-transform focus:-translate-y-1 object-cover"
       transition:animate="fade"
       id="logo"
     />
@@ -32,8 +32,10 @@ const currentPath = Astro.url.pathname;
       navLinks.map((link) => (
         <li
           class={
-            "inline-block mr-6 text-sm tracking-wide font-medium hover:text-accent " +
-            (currentPath === link.url ? "text-accent" : "text-secondary")
+            "inline-block mr-6 text-sm tracking-wide font-medium hover:text-accent-content " +
+            (currentPath === link.url
+              ? "text-accent-content"
+              : "text-secondary-content")
           }
         >
           <a href={link.url}>{link.name}</a>
@@ -44,4 +46,3 @@ const currentPath = Astro.url.pathname;
   <hr class="flex-1 bg-neutral-content text-neutral-content h-0.5 mt-1 mx-3" />
   <ThemeSwitcher />
 </header>
-
