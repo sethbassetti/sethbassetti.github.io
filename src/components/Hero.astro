@@ -30,19 +30,23 @@ const socialIcons = [
   <!--Info -->
   <div>
     <h1 class="text-4xl max-w-3xl my-8 font-semibold text-primary-content">
-      Hey there, I'm Seth Bassetti! 👋
+      Hey there, I'm Seth Bassetti! <span
+        class="animate-wave inline-block origin-[70%_70%]">👋</span
+      >
     </h1>
 
-    <Prose>
+    <Prose class="text-primary-content">
       <Content />
     </Prose>
   </div>
 
   <!-- Headshot + Social Icons -->
   <div class="flex flex-col items-center ml-16 shrink-0">
-    <div class="relative flex items-center size-96">
+    <div class="relative isolate flex items-center size-96">
       <!-- Your headshot image on top -->
-      <div class="absolute inset-0 z-[-1] h-full w-full animate-spin">
+      <div
+        class="absolute inset-0 z-[-1] h-full w-full animate-spin pointer-events-none"
+      >
         <svg
           class="fill-accent"
           viewBox="0 0 278 279"
@@ -56,6 +60,7 @@ const socialIcons = [
         src={headshot}
         alt="Seth Bassetti"
         class="relative inset-0 rounded-full size-9/10 m-auto"
+        loading="eager"
       />
     </div>
 
@@ -66,7 +71,7 @@ const socialIcons = [
           <a href={link} target="_blank">
             <Icon
               icon={icon}
-              class="h-8 w-8 text-primary-content hover:text-accent-content hover:-translate-y-1 ease-in-out"
+              class="h-8 w-8 text-secondary-content hover:text-accent-content hover:-translate-y-1 ease-in-out"
             />
           </a>
         ))
