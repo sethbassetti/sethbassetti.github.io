@@ -1,6 +1,6 @@
 ---
 import Header from "../components/Header.astro";
-import Body from "../components/Body.astro";
+import Hero from "../components/Hero.astro";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource-variable/inter";
 import { Image } from "astro:assets";
@@ -9,7 +9,7 @@ import noise from "../images/noisy.png";
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en" transition:persist>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -20,16 +20,16 @@ const { pageTitle } = Astro.props;
   </head>
 
   <body
-    ><div class="px-24">
+    ><div class="px-36">
       <Header />
 
-      <Body />
-    </div>
+      <Hero />
 
-    <!-- Background Noise -->
-    <div
-      class="absolute inset-0 -z-20 opacity-80 h-full w-full mix-blend-overlay bg-[url('../images/noisy.png')]"
-    >
+      <!-- Background Noise -->
+      <div
+        class="absolute inset-0 -z-20 opacity-80 h-full w-full mix-blend-overlay bg-[url('../images/noisy.png')]"
+      >
+      </div>
     </div>
   </body>
 </html>

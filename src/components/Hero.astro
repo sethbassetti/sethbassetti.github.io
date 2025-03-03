@@ -1,0 +1,76 @@
+---
+import headshot from "../images/headshot.jpeg";
+import { Image } from "astro:assets";
+import { Content } from "./bio.md";
+import Prose from "./Prose.astro";
+import Icon from "./Icon.astro";
+
+// Define a list of the social media icons and their links
+const socialIcons = [
+  {
+    icon: "mailIcon",
+    link: "mailto:seth.bassetti@usu.edu",
+  },
+  {
+    icon: "githubIcon",
+    link: "https://github.com/sethbassetti",
+  },
+  {
+    icon: "googleScholarIcon",
+    link: "https://scholar.google.com/citations?hl=en&user=kgeHzfwAAAAJ",
+  },
+  {
+    icon: "linkedInIcon",
+    link: "https://www.linkedin.com/in/sethbassetti/",
+  },
+];
+---
+
+<div class="flex flex-col-reverse lg:flex-row align-center">
+  <!--Info -->
+  <div>
+    <h1 class="text-4xl max-w-3xl my-8 font-semibold text-primary-content">
+      Hey there, I'm Seth Bassetti! 👋
+    </h1>
+
+    <Prose>
+      <Content />
+    </Prose>
+  </div>
+
+  <!-- Headshot + Social Icons -->
+  <div class="flex flex-col items-center ml-16 shrink-0">
+    <div class="relative flex items-center size-96">
+      <!-- Your headshot image on top -->
+      <div class="absolute inset-0 z-[-1] h-full w-full animate-spin">
+        <svg
+          class="fill-accent"
+          viewBox="0 0 278 279"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M137.896 0.127761C167.59 -0.638578 198.383 1.62824 222.877 18.4301C247.738 35.4836 263.129 63.014 271.706 91.9151C280.118 120.258 280.513 150.661 270.364 178.43C260.457 205.538 239.342 225.92 216.353 243.372C192.903 261.174 167.336 278.631 137.896 278.994C108.28 279.358 81.0666 263.928 58.0226 245.322C35.8955 227.455 20.5343 203.415 11.0775 176.594C1.41508 149.191 -4.23875 119.749 3.91245 91.8587C12.2111 63.4638 31.6331 39.4483 56.0438 22.7357C79.9856 6.34414 108.89 0.876363 137.896 0.127761Z"
+          ></path></svg
+        >
+      </div>
+      <Image
+        src={headshot}
+        alt="Seth Bassetti"
+        class="relative inset-0 rounded-full size-9/10 m-auto"
+      />
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex flex-row place-content-center gap-5 mt-4">
+      {
+        socialIcons.map(({ icon, link }) => (
+          <a href={link} target="_blank">
+            <Icon
+              icon={icon}
+              class="h-8 w-8 text-primary-content hover:text-accent-content hover:-translate-y-1 ease-in-out"
+            />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>

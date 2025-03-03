@@ -1,0 +1,30 @@
+---
+import GithubIcon from "./icons/GithubIcon.astro";
+import GoogleScholarIcon from "./icons/GoogleScholarIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import MailIcon from "./icons/MailIcon.astro";
+
+const iconMap = {
+  githubIcon: GithubIcon,
+  googleScholarIcon: GoogleScholarIcon,
+  linkedInIcon: LinkedInIcon,
+  mailIcon: MailIcon,
+};
+
+interface Props {
+  icon: string; // accept any string
+  class?: string;
+}
+
+const { icon, class: className = "" } = Astro.props as Props;
+
+if (!(icon in iconMap)) {
+  throw new Error(
+    `Icon "${icon}" not found. Available icons: ${Object.keys(iconMap).join(", ")}`
+  );
+}
+
+const IconComponent = iconMap[icon as keyof typeof iconMap];
+---
+
+<IconComponent class={className} />
