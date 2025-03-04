@@ -6,7 +6,8 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-accent: rgb(173 184 89);
+  --color-accent: rgb(173, 184, 89);
+  --color-secondary: rgb(238,	242,	247);
   --color-primary-content: rgb(45, 55, 72);
   --color-secondary-content: rgb(80, 89, 106);
   --color-accent-content: rgb(65, 110, 174);
@@ -15,6 +16,7 @@
 @plugin "daisyui/theme" {
   name: "dark";
   prefersdark: true;
+  --color-secondary: rgb(13, 17, 27);
   --color-base-100: rgb(17, 24, 39);
   --color-secondary-content: rgb(226, 231, 238);
   --color-accent-content: rgb(149, 223, 212);

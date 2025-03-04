@@ -1,17 +1,35 @@
 ---
-import Social from "./Social.astro";
+// Footer.astro
+// No frontmatter needed unless you want to pass props
 ---
 
-<footer>
-  <Social platform="twitter" username="astrodotbuild" />
-  <Social platform="github" username="withastro" />
-  <Social platform="youtube" username="astrodotbuild" />
-</footer>
+<footer
+  class="flex flex-col gap-4 items-center bg-secondary bg-cover mt-8 px-36 pt-8"
+>
+  <a
+    class="bg-linear-to-r from-teal-500 to-blue-500 px-12 py-2 rounded bg-[length:150%] duration-500 ease-out bg-left hover:bg-right"
+    href="mailto:seth.bassetti@usu.edu"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span class="text-2xl text-white font-semibold">Get in touch 🤝</span>
+  </a>
 
-<style>
-  footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-</style>
+  <span class="text-md text-secondary-content">
+    Feel free to email me about anything. I am happy to chat and discuss
+    potential collaborations!
+  </span>
+
+  <span class="text-secondary-content self-start text-sm">
+    Built with
+    <a
+      href="https://astro.build"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="underline inline"
+    >
+      Astro
+    </a><br />
+    © 2025 - present. Seth Bassetti. All Rights Reserved.
+  </span>
+</footer>

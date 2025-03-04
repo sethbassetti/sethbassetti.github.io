@@ -1,15 +1,13 @@
 ---
 import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
 import "@fontsource-variable/inter";
-import { Image } from "astro:assets";
-import noise from "../images/noisy.png";
 
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -19,17 +17,23 @@ const { pageTitle } = Astro.props;
     <ClientRouter />
   </head>
 
-  <body
-    ><div class="px-36">
-      <Header />
-
-      <slot />
-
-      <!-- Background Noise -->
-      <div
-        class="absolute inset-0 -z-20 opacity-80 h-full w-full mix-blend-overlay bg-[url('../images/noisy.png')]"
-      >
-      </div>
+  <!-- 1) Make body a flex container, full height, and position relative. -->
+  <body class="relative flex flex-col min-h-screen">
+    <!-- 2) Absolutely positioned background anchored to body (which is now relative). -->
+    <div
+      class="absolute inset-0 -z-20 opacity-80 bg-[url('../images/noisy.png')] mix-blend-overlay"
+    >
     </div>
+
+    <!-- Header -->
+    <Header />
+
+    <!-- 3) Main content grows to push the footer to the bottom. -->
+    <main class="flex-grow px-36">
+      <slot />
+    </main>
+
+    <!-- Footer at the bottom -->
+    <Footer />
   </body>
 </html>
