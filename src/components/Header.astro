@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../images/logo.png";
-import "../styles/global.css";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
+import "../styles/global.css";
 
 const navLinks = [
   { name: "HOME", url: "/" },
@@ -14,36 +14,46 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="navbar py-8 select-none px-36">
-  <!-- Left Section (Logo/Brand) -->
-  <a href="/" class="mr-6">
-    <Image
-      src={logo}
-      alt="Logo"
-      class="h-9 w-9 rounded-full hover:-translate-y-1 ease-in-out transition-transform focus:-translate-y-1 object-cover"
-      transition:animate="fade"
-      id="logo"
-      loading="eager"
-    />
-  </a>
+<header
+  class="container h-32 max-w-screen-xl px-5 m-auto overflow-hidden sm:px-12 md:pix-20"
+>
+  <navbar
+    class="flex items-center justify-start h-full mt-auto space-x-6 text-sm"
+  >
+    <!-- Left Section (Logo/Brand) -->
+    <a
+      href="/"
+      class="flex items-center border-white group"
+      aria-label="Website logo, goes back to homepage"
+    >
+      <Image
+        src={logo}
+        alt="Logo"
+        class="h-9 w-9 rounded-full hover:-translate-y-1 ease-in-out transition-transform focus:-translate-y-1 object-cover"
+        transition:animate="fade"
+        id="logo"
+        loading="eager"
+      />
+    </a>
 
-  <!-- Center Section (NavLinks) -->
-  <ul class="">
-    {
-      navLinks.map((link) => (
-        <li
-          class={
-            "inline-block mr-6 text-sm tracking-wide font-medium hover:text-accent-content " +
-            (currentPath === link.url
-              ? "text-accent-content"
-              : "text-secondary-content")
-          }
-        >
-          <a href={link.url}>{link.name}</a>
-        </li>
-      ))
-    }
-  </ul>
-  <hr class="flex-1 bg-neutral-content text-neutral-content h-0.5 mt-1 mx-3" />
-  <ThemeSwitcher />
+    <!-- Center Section (NavLinks) -->
+    <ul class="">
+      {
+        navLinks.map((link) => (
+          <li
+            class={
+              "inline-block mr-6 text-sm tracking-wide font-medium hover:text-accent-content " +
+              (currentPath === link.url
+                ? "text-accent-content"
+                : "text-secondary-content")
+            }
+          >
+            <a href={link.url}>{link.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <hr class="flex-1 bg-slate-300 text-slate-300 h-0.5 mt-1 mx-3" />
+    <ThemeSwitcher />
+  </navbar>
 </header>

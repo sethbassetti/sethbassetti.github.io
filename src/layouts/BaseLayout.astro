@@ -18,7 +18,7 @@ const { pageTitle } = Astro.props;
   </head>
 
   <!-- 1) Make body a flex container, full height, and position relative. -->
-  <body class="relative flex flex-col min-h-screen">
+  <body class="relative flex flex-col min-h-screen bg-primary">
     <!-- 2) Absolutely positioned background anchored to body (which is now relative). -->
     <div
       class="absolute inset-0 -z-20 opacity-80 bg-[url('../images/noisy.png')] mix-blend-overlay"
@@ -37,3 +37,7 @@ const { pageTitle } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<script>
+  import "../scripts/themeToggle.js";
+</script>
