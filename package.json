@@ -9,14 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.1",
     "@fontsource-variable/inter": "^5.2.0",
     "@tailwindcss/vite": "^4.0.9",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
     "astro": "^5.3.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "bibtex-js-parser": "^1.1.6",
     "tailwindcss": "^4.0.9"
   },
   "devDependencies": {

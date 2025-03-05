@@ -31,7 +31,6 @@ const update = () => {
   setTheme(theme);
 
   document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
-  console.log("Hello");
 }
 
 update();

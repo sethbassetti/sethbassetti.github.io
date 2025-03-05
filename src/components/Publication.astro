@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+const papers = await getCollection("papers");
+const paper = papers[0].data;
+const myName = "Seth Bassetti";
+---
+
+<div class="group flex flex-col">
+  <span
+    class="text-lg text-primary-content font-semibold group-hover:text-accent-content leading-tight"
+    >{paper.title}</span
+  >
+  <span class="text-sm text-secondary-content">
+    {
+      paper.author.map((name, index) => (
+        <>
+          {name === myName ? (
+            <strong>
+              <u>{name}</u>
+            </strong>
+          ) : (
+            name
+          )}
+          {index < paper.author.length - 1 ? ", " : ""}
+        </>
+      ))
+    }</span
+  >
+  <span class="text-sm text-secondary-content italic">{paper.venue}</span>
+  <div class="flex flex-row mt-1 gap-4">
+    <div
+      class="text-xs rounded text-white bg-accent-content px-2 py-1 place-content-center"
+    >
+      {paper.abbr}
+    </div>
+    {
+      paper.html && (
+        <a
+          class="text-xs rounded px-2 py-1 border border-accent-content text-accent-content hover:text-white hover:bg-accent-content place-content-center transition-colors transition-timing-300"
+          href={paper.html}
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          HTML
+        </a>
+      )
+    }
+    <a
+      class="text-xs rounded px-2 py-1 border border-accent-content text-accent-content hover:text-white hover:bg-accent-content place-content-center transition-colors transition-timing-300"
+      href={paper.pdf}
+      target="blank"
+      rel="noopener noreferrer"
+    >
+      PDF</a
+    >
+  </div>
+</div>
