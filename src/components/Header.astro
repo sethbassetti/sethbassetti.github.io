@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import logo from "../images/logo.png";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 import "../styles/global.css";
+import MobileNav from "./MobileNav.astro";
 
 const navLinks = [
   { name: "HOME", url: "/" },
@@ -18,7 +19,7 @@ const currentPath = Astro.url.pathname;
   class="container h-32 px-5 m-auto max-w-screen-xl overflow-hidden sm:px-12 md:px-20"
 >
   <navbar
-    class="flex items-center justify-start h-full mt-auto space-x-6 text-sm"
+    class="flex items-center h-full mt-auto space-x-6 text-sm"
     aria-label="Main Navigation"
   >
     <!-- Left Section (Logo/Brand) -->
@@ -42,7 +43,7 @@ const currentPath = Astro.url.pathname;
     </a>
 
     <!-- Center Section (NavLinks) -->
-    <div class="hidden sm:flex items-left flex-grow items-center">
+    <div class="hidden sm:flex flex-grow items-center">
       <ul class="flex gap-6">
         {
           navLinks.map((link) => (
@@ -60,8 +61,8 @@ const currentPath = Astro.url.pathname;
         }
       </ul>
       <hr class="flex-1 bg-slate-300 text-slate-300 h-0.5 mx-3 self-center" />
-
       <ThemeSwitcher />
     </div>
+    <MobileNav />
   </navbar>
 </header>

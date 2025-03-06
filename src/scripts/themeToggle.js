@@ -30,8 +30,11 @@ const update = () => {
   localStorage.setItem("theme", theme);
   setTheme(theme);
 
-  document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
-  console.log("Hello");
+  // Attach the event listener to all theme toggle buttons.
+  document.querySelectorAll(".theme-toggle").forEach(btn => {
+    btn.removeEventListener("click", handleToggleClick); // Avoid duplicate bindings.
+    btn.addEventListener("click", handleToggleClick);
+  });
 }
 
 update();

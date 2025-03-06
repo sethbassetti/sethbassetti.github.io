@@ -1,0 +1,110 @@
+---
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+
+const navLinks = [
+  { name: "HOME", url: "/" },
+  { name: "PUBLICATIONS", url: "/publications" },
+  { name: "PROJECTS", url: "/projects" },
+  { name: "BLOG", url: "/blog" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<div
+  id="mobile-nav"
+  class="text-xl sm:hidden ml-auto self-center"
+  aria-hidden="true"
+>
+  <button
+    id="nav-toggle"
+    class="relative flex items-center z-50 p-3 cursor-pointer"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-6 h-6 text-primary-content"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      id="hamburger-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width={2}
+        fill="currentColor"
+        d="M4 8h16M4 16h16"></path>
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-6 h-6 hidden text-primary-content"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      id="close-icon"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width={2}
+        fill="currentColor"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <nav
+    id="nav-menu"
+    class="fixed inset-0 w-full h-screen bg-primary z-20 hidden flex-col justify-center items-center py-48 mt-auto"
+  >
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.url}
+          class={
+            "flex-grow text-base tracking-widest hover:text-accent-content " +
+            (currentPath === link.url
+              ? "text-accent-content"
+              : "text-secondary-content")
+          }
+        >
+          {link.name}
+        </a>
+      ))
+    }
+    <ThemeSwitcher />
+  </nav>
+</div>
+
+<script>
+  const updateMobileNav = () => {
+    const navToggle = document.getElementById("nav-toggle")!;
+    const navMenu = document.getElementById("nav-menu")!;
+    const hamburger = document.getElementById("hamburger-icon")!;
+    const close = document.getElementById("close-icon")!;
+
+    let showNav = false;
+    function toggle() {
+      showNav = !showNav;
+
+      if (showNav) {
+        close.classList.remove("hidden");
+        hamburger.classList.add("hidden");
+        navMenu.classList.remove("hidden");
+        navMenu.classList.add("flex");
+        // Disable scrolling on the body
+        document.body.style.overflow = "hidden";
+      } else {
+        close.classList.add("hidden");
+        hamburger.classList.remove("hidden");
+        navMenu.classList.add("hidden");
+        navMenu.classList.remove("flex");
+        // Re-enable scrolling on the body
+        document.body.style.overflow = "";
+      }
+    }
+
+    navToggle.addEventListener("click", toggle);
+  };
+  updateMobileNav();
+  document.addEventListener("astro:after-swap", updateMobileNav);
+</script>

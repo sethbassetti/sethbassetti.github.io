@@ -26,10 +26,10 @@ const socialIcons = [
 ];
 ---
 
-<div class="flex flex-col-reverse lg:flex-row align-center">
+<div class="flex flex-col-reverse lg:flex-row">
   <!--Info -->
   <div>
-    <h1 class="text-4xl max-w-3xl mt-8 mb-2 font-semibold text-primary-content">
+    <h1 class="text-3xl sm:text-4xl max-w-3xl mt-8 mb-2 font-semibold text-primary-content">
       Hey there, I'm Seth Bassetti! <span
         class="animate-wave inline-block origin-[70%_70%]">👋</span
       >
@@ -46,8 +46,10 @@ const socialIcons = [
   </div>
 
   <!-- Headshot + Social Icons -->
-  <div class="flex flex-col items-center ml-16 shrink-0">
-    <div class="relative isolate flex items-center size-96">
+  <div class="flex flex-col items-center lg:ml-16 shrink-0">
+    <div
+      class="relative isolate flex items-center size-64 md:size-72 lg:size-96"
+    >
       <!-- Your headshot image on top -->
       <div
         class="absolute inset-0 z-[-1] h-full w-full animate-spin pointer-events-none"
