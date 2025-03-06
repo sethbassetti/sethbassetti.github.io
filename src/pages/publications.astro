@@ -1,16 +1,71 @@
 ---
 import { getCollection } from "astro:content";
-const posts = await getCollection("papers");
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Publications | Seth Bassetti";
 
 import Publication from "../components/Publication.astro";
 import Icon from "../components/Icon.astro";
+
+// Fetch all papers
+const allPapers = await getCollection("papers");
+
+// Sort papers by descending year
+const sortedPapers = allPapers.sort((a, b) => b.data.year - a.data.year);
+
+// Group papers by year
+const papersByYear = sortedPapers.reduce((acc: any, paper) => {
+  const { year } = paper.data;
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(paper);
+  return acc;
+}, {});
+
+console.log("Hello");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="inline-flex p-3 rounded-full bg-subtle">
     <Icon icon="papersIcon" class="size-6 text-accent-content" />
   </div>
-  <Publication />
+  <h1
+    class="text-2xl mt-3 mb-2 font-semibold text-accent-content tracking-tight"
+  >
+    Publications
+  </h1>
+  <p class="text-secondary-content mb-2">
+    My research applies machine learning to the natural sciences, with a
+    particular focus on environmental challenges such as climate modeling.
+    Recently I have worked on developing novel methods for downscaling climate
+    data using generative modeling techniques such as diffusion models. I'm
+    especially interested in leveraging physics-informed neural networks such as
+    Fourier Neural Operators, to better capture the underlying dynamics of the
+    climate system.
+  </p>
+
+  <section class="mt-3">
+    {/** Iterate over each year (descending) */}
+    {
+      Object.keys(papersByYear)
+        .sort((a, b) => Number(b) - Number(a))
+        .map((year) => (
+          <div class="relative mt-8">
+            {/* Horizontal line separating each year */}
+            <hr class="border-t-2 border-dotted border-gray-300 mb-2" />
+            {/* Year label on the right */}
+            <span class="absolute right-0 -top-3 text-gray-500 bg-gray-100 px-2">
+              {year}
+            </span>
+            {/* Publications for this year */}
+            {papersByYear[year].map((paper: any) => (
+              <div class="mb-4">
+                <Publication paper={paper.data} />
+              </div>
+            ))}
+          </div>
+        ))
+    }
+  </section>
 </BaseLayout>

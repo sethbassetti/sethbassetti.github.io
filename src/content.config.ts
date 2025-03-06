@@ -3,17 +3,6 @@ import {file } from "astro/loaders";
 import {BibtexParser} from "bibtex-js-parser";
 
 
-interface Paper extends Record<string, unknown> {
-    title: string;
-    authors: string[];
-    year: number;
-    venue: string; // For @inproceedings, uses booktitle; for @article, uses journal.
-    url?: string;
-    pdf?: string;
-    abstract?: string;
-    abbr?: string;
-    selected?: boolean;
-  }
   
   const convert = (text: string): any => {
     let entries = BibtexParser.parseToJSON(text);

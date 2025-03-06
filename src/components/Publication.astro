@@ -1,7 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-const papers = await getCollection("papers");
-const paper = papers[0].data;
+const { paper } = Astro.props;
 const myName = "Seth Bassetti";
 ---
 
@@ -12,7 +10,7 @@ const myName = "Seth Bassetti";
   >
   <span class="text-sm text-secondary-content">
     {
-      paper.author.map((name, index) => (
+      paper.author.map((name: any, index: any) => (
         <>
           {name === myName ? (
             <strong>
