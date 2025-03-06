@@ -15,10 +15,14 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <ClientRouter />
+    <script
+      data-goatcounter="https://hameliton.goatcounter.com/count"
+      async
+      src="//gc.zgo.at/count.js"></script>
   </head>
 
   <!-- 1) Make body a flex container, full height, and position relative. -->
-  <body class="relative flex flex-col min-h-screen bg-primary ">
+  <body class="relative flex flex-col min-h-screen bg-primary">
     <!-- 2) Absolutely positioned background anchored to body (which is now relative). -->
     <div
       class="absolute inset-0 -z-20 opacity-80 bg-[url('../images/noisy.png')] mix-blend-overlay"
