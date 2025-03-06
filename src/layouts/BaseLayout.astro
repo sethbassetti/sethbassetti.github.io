@@ -15,12 +15,24 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <ClientRouter />
-    <script
-      is:inline
-      data-astro-rerun
-      data-goatcounter="https://hameliton.goatcounter.com/count"
-      async
-      src="//gc.zgo.at/count.js"></script>
+    <script is:inline>
+      function loadGoatCounter() {
+        const script = document.createElement("script");
+        script.src = "//gc.zgo.at/count.js";
+        script.setAttribute(
+          "data-goatcounter",
+          "https://hameliton.goatcounter.com/count"
+        );
+        script.async = true;
+        document.head.appendChild(script);
+      }
+
+      // Run immediately upon initial page load
+      loadGoatCounter();
+
+      // Run upon Astro page reloads
+      document.addEventListener("astro:page-swap", loadGoatCounter);
+    </script>
   </head>
 
   <!-- 1) Make body a flex container, full height, and position relative. -->
