@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import logo from "../images/logo.png";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 import "../styles/global.css";
+import MobileNav from "./MobileNav.astro";
 
 const navLinks = [
   { name: "HOME", url: "/" },
@@ -15,45 +16,53 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header
-  class="container h-32 max-w-screen-xl m-auto overflow-hidden px-5 sm:px-12 md:px-20"
+  class="container h-32 px-5 m-auto max-w-screen-xl overflow-hidden sm:px-12 md:px-20"
 >
   <navbar
-    class="flex items-center justify-start h-full mt-auto space-x-6 text-sm"
+    class="flex items-center h-full mt-auto space-x-6 text-sm"
+    aria-label="Main Navigation"
   >
     <!-- Left Section (Logo/Brand) -->
     <a
       href="/"
-      class="flex items-center border-white group"
+      class="flex items-center flex-shrink-0 group"
       aria-label="Website logo, goes back to homepage"
     >
       <Image
         src={logo}
         alt="Logo"
-        class="h-9 w-9 rounded-full hover:-translate-y-1 ease-in-out transition-transform focus:-translate-y-1 object-cover"
+        class="h-9 w-9 rounded-full hover:-translate-y-1 ease-in-out transition-transform focus:-translate-y-1"
         transition:animate="fade"
         id="logo"
         loading="eager"
       />
+      <span
+        class="text-secondary-content font-semibold ml-3 text-base group-hover:text-accent-content sm:hidden"
+        >Seth Bassetti</span
+      >
     </a>
 
     <!-- Center Section (NavLinks) -->
-    <ul class="">
-      {
-        navLinks.map((link) => (
-          <li
-            class={
-              "inline-block mr-6 text-sm tracking-wide font-medium hover:text-accent-content " +
-              (currentPath === link.url
-                ? "text-accent-content"
-                : "text-secondary-content")
-            }
-          >
-            <a href={link.url}>{link.name}</a>
-          </li>
-        ))
-      }
-    </ul>
-    <hr class="flex-1 bg-slate-300 text-slate-300 h-0.5 mt-1 mx-3" />
-    <ThemeSwitcher />
+    <div class="hidden sm:flex flex-grow items-center">
+      <ul class="flex gap-6">
+        {
+          navLinks.map((link) => (
+            <li
+              class={
+                "inline-block text-sm tracking-wide font-medium hover:text-accent-content " +
+                (currentPath === link.url
+                  ? "text-accent-content"
+                  : "text-secondary-content")
+              }
+            >
+              <a href={link.url}>{link.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <hr class="flex-1 bg-slate-300 text-slate-300 h-0.5 mx-3 self-center" />
+      <ThemeSwitcher />
+    </div>
+    <MobileNav />
   </navbar>
 </header>

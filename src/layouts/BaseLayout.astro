@@ -29,7 +29,7 @@ const { pageTitle } = Astro.props;
     <Header />
 
     <!-- 3) Main content grows to push the footer to the bottom. -->
-    <main class="container flex-grow max-w-screen-xl m-auto px-5 sm:px-12 md:px-20">
+    <main class="flex-grow container px-5 m-auto max-w-screen-xl overflow-hidden sm:px-12 md:px-20">
       <slot />
     </main>
 

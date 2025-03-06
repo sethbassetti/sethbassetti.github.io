@@ -89,6 +89,6 @@
   --color-accent-content: rgb(149, 223, 212);
 }
 
-body {
+html {
   transition: all 0.3s ease 0s;
 }
