@@ -33,6 +33,7 @@
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-accent: var(--color-accent);
+  --color-subtle: var(--color-subtle);
 
   --color-primary-content: var(--color-primary-content);
   --color-secondary-content: var(--color-secondary-content);
@@ -77,6 +78,7 @@
   --color-secondary-content: rgb(80, 89, 106);
   --color-accent: rgb(173, 184, 89);
   --color-accent-content: rgb(61, 106, 172);
+  --color-subtle: rgb(228,	235, 241);
 
 }
 
@@ -85,10 +87,11 @@
   --color-primary-content: rgb(226, 231, 238);
   --color-secondary: rgb(13, 17, 27);
   --color-secondary-content: rgb(226, 231, 238);
-  --color-accent: rgb(149, 223, 212);
-  --color-accent-content: rgb(149, 223, 212);
+
+  --color-accent-content: rgb(173, 184, 89);
+  --color-subtle: rgb(27,35,	55);	
 }
 
-html {
+body {
   transition: all 0.3s ease 0s;
 }

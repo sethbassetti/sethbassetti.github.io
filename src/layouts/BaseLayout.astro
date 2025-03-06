@@ -18,7 +18,7 @@ const { pageTitle } = Astro.props;
   </head>
 
   <!-- 1) Make body a flex container, full height, and position relative. -->
-  <body class="relative flex flex-col min-h-screen bg-primary">
+  <body class="relative flex flex-col min-h-screen bg-primary ">
     <!-- 2) Absolutely positioned background anchored to body (which is now relative). -->
     <div
       class="absolute inset-0 -z-20 opacity-80 bg-[url('../images/noisy.png')] mix-blend-overlay"
@@ -29,7 +29,9 @@ const { pageTitle } = Astro.props;
     <Header />
 
     <!-- 3) Main content grows to push the footer to the bottom. -->
-    <main class="flex-grow container px-5 m-auto max-w-screen-xl overflow-hidden sm:px-12 md:px-20">
+    <main
+      class="flex-grow container px-5 max-w-screen-xl m-auto overflow-hidden sm:px-12 md:px-20"
+    >
       <slot />
     </main>
 

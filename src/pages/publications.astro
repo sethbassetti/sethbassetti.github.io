@@ -5,8 +5,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Publications | Seth Bassetti";
 
 import Publication from "../components/Publication.astro";
+import Icon from "../components/Icon.astro";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <div class="inline-flex p-3 rounded-full bg-subtle">
+    <Icon icon="papersIcon" class="size-6 text-accent-content" />
+  </div>
   <Publication />
 </BaseLayout>

@@ -1,35 +1,34 @@
----
-// Footer.astro
-// No frontmatter needed unless you want to pass props
----
-
-<footer
-  class="flex flex-col gap-4 items-center bg-secondary bg-cover mt-8 pt-8 container px-5 m-auto max-w-screen-xl overflow-hidden sm:px-12 md:px-20"
->
-  <a
-    class="bg-linear-to-r from-teal-500 to-blue-500 px-12 py-2 rounded bg-[length:150%] duration-500 ease-out bg-left hover:bg-right"
-    href="mailto:seth.bassetti@usu.edu"
-    target="_blank"
-    rel="noopener noreferrer"
+<footer class="bg-secondary bg-cover overflow-hidden w-full mt-8">
+  <div
+    class="container mx-auto px-5 md:px-20 flex flex-col gap-4 items-center pt-8"
   >
-    <span class="text-2xl text-white font-semibold">Get in touch 🤝</span>
-  </a>
-
-  <span class="text-md text-secondary-content">
-    Feel free to email me about anything. I'd love to connect about potential
-    collaborations!
-  </span>
-
-  <span class="text-secondary-content self-start text-sm">
-    Built with
     <a
-      href="https://astro.build"
+      class="bg-linear-to-r from-blue-400 to-violet-500 dark:from-accent-content dark:to-green-700 px-12 py-2 rounded bg-[length:150%] duration-500 ease-out bg-left hover:bg-right"
+      href="mailto:seth.bassetti@usu.edu"
       target="_blank"
       rel="noopener noreferrer"
-      class="underline inline"
     >
-      Astro
-    </a><br />
-    © 2025 - present. Seth Bassetti. All Rights Reserved.
-  </span>
+      <span class="text-2xl text-white font-semibold">Get in touch 🤝</span>
+    </a>
+
+    <span class="text-md text-secondary-content text-center">
+      Feel free to email me about anything. I'd love to connect about potential
+      collaborations!
+    </span>
+
+    <span
+      class="text-secondary-content text-sm text-center lg:text-left self-start w-full"
+    >
+      Built with
+      <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline inline"
+      >
+        Astro
+      </a><br />
+      © 2025 - present. Seth Bassetti. All Rights Reserved.
+    </span>
+  </div>
 </footer>
