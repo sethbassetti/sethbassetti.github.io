@@ -2,9 +2,27 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import PublicationList from "../components/PublicationList.astro";
+import Icon from "../components/Icon.astro";
 const pageTitle = "Seth Bassetti | Educator at USU";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <Hero />
+  <div class="flex flex-row mt-16 items-center gap-3">
+    <div class="inline-flex p-3 rounded-full bg-subtle">
+      <Icon icon="papersIcon" class="size-6 text-accent-content" />
+    </div>
+    <span class="mt-3 mb-2 text-accent-content uppercase tracking-[.2em]">
+      Selected Publications
+    </span>
+  </div>
+
+  <PublicationList selected={true} />
+  <a
+    class="flex items-center space-x-2 text-secondary-content hover:text-accent-content transition-transform ease-in-out hover:translate-x-1 mt-6 cursor-pointer"
+    href="/publications"
+  >
+    <span class="text-xs uppercase tracking-[.2em]"> All Publications </span>
+    <span>→</span>
+  </a>
 </BaseLayout>
